@@ -25,9 +25,9 @@ jobs:
         cd build
         make
 
-    - name: Run the application
-      run: 
-        echo "YourInputValue" | ./build/src/assignment_cli
+    # - name: Run the application
+    #   run: 
+    #     ./build/src/assignment_cli
      
 
     - name: Run test
