@@ -1,0 +1,34 @@
+name: Solution Build and Test
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    runs-on: macos-latest
+
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install cmake
+
+    - name: Build code
+      run: 
+        cmake -B build -S .
+        
+    - name: Open build directory
+      run: |
+        cd build
+        make
+
+    # - name: Run the application
+    #   run: | 
+    #     ./build/src/assignment_cli
+     
+
+    - name: Run tests
+      run: ./build/test/assignment_test
